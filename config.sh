@@ -1,10 +1,10 @@
-sudo chmod 666 /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
 
 sudo docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v $(pwd):/opt \
     -w /opt \
-    laravelsail/php83-composer:latest \
+    laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'

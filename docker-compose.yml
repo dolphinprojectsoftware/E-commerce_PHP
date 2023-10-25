@@ -66,6 +66,8 @@ services:
 networks:
     sail:
         driver: bridge
+        driver_opts:
+            com.docker.network.driver.mtu: 5000
 volumes:
     sail-mysql:
         driver: local

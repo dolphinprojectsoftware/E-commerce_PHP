@@ -73,8 +73,26 @@ Adding a new SSH authentication key to your account on GitHub.com, you can recon
 
 9. If prompted, confirm access to your account on GitHub.
 
-## Clone porject
+## Clone a repository
 
+To clone a Git repository using the SSH protocol, you can use the git clone command with a valid SSH URL.
+
+To verify that the SSH key you’ve just added to your account works:
+
+1. Navigate to the repository you wish to clone.
+2. Click on the __"Code"__ button.
+3. Copy the URL located under the "SSH" tab.
+4. Open terminal and paste URL after __git clone__ command.
+
+    ```shell
+   $ git clone git@github.com:dolphinprojectsoftware/E-commerce_PHP.git
+    ```
+
+## Docker
+
+Docker is an open source platform that enables developers to build, deploy, run, update and manage containers standardized, executable components that combine application source code with the operating system (OS) libraries and dependencies required to run that code in any environment.
+
+### Install docker
 
 
 

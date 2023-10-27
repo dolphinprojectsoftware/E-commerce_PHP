@@ -1,5 +1,7 @@
 # Running Application
 
+## Laravel Sail
+
 1. Set permissions to docker.
 
     ```shell
@@ -58,3 +60,11 @@
 >   chown -R sail:sail html
 >   ```
 
+## Check Docker Image Runnning
+
+```shell
+$ sudo docker ps / 
+--filter "name=e-commerce_php-laravel.test-1" / 
+--filter "status=running" / 
+--format "{{.Image}}"
+```

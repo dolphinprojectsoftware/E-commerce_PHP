@@ -60,6 +60,21 @@
 >   chown -R sail:sail html
 >   ```
 
+## Laravel Migrations
+
+   ```shell
+   $ sail php artisan config:clear 
+   $ sail php artisan migrate
+   ```
+
+## IDE helper commands
+
+   ```shell
+   $ sail php artisan ide-helper:generate #PHPDoc generation for Laravel Facades
+   $ sail php artisan ide-helper:models --no-interaction #PHPDocs for models
+   $ sail php artisan ide-helper:meta #PhpStorm Meta file
+   ```
+
 ## Check Docker Image Runnning
 
 ```shell

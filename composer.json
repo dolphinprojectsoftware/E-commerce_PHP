@@ -16,8 +16,7 @@
     "nwidart/laravel-modules": "^10.0"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
-    ,
+    "roave/security-advisories": "dev-latest",
     "barryvdh/laravel-ide-helper": "^2.13",
     "fakerphp/faker": "^1.9.1",
     "laravel/pint": "^1.0",
@@ -71,6 +70,7 @@
       "php-http/discovery": true
     },
     "process-timeout": 0,
+    "platform-check": true,
     "platform": {
       "php": "8.2.0"
     }

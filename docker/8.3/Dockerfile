@@ -5,6 +5,7 @@ LABEL maintainer="Taylor Otwell"
 ARG WWWGROUP
 ARG NODE_VERSION=20
 ARG POSTGRES_VERSION=15
+ARG XDEBUG_VERSION=3.3.0alpha2
 
 WORKDIR /var/www/html
 
@@ -27,7 +28,7 @@ RUN apt-get update \
        php8.3-intl php8.3-readline \
        php8.3-ldap \
        # php8.3-msgpack php8.3-igbinary php8.3-redis php8.3-swoole \
-       # php8.3-memcached php8.3-pcov php8.3-xdebug \
+       # php8.3-memcached php8.3-pcov \
        # php8.3-imagick \
     && curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
     && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
@@ -48,6 +49,16 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN curl -fs https://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz -o xdebug-$XDEBUG_VERSION.tgz \
+    && tar -xzf xdebug-$XDEBUG_VERSION.tgz \
+    && cd xdebug-$XDEBUG_VERSION \
+    && phpize \
+    && ./configure --enable-xdebug \
+    && make \
+    && make install \
+    && cp xdebug.ini /etc/php/8.3/cli/conf.d/99-xdebug.ini \
+    && cd ..
 
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.3
 

@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $path = module_path('Core');
     return view('welcome');
 });
 

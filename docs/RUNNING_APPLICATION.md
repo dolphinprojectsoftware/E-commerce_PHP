@@ -83,3 +83,11 @@ $ sudo docker ps /
 --filter "status=running" / 
 --format "{{.Image}}"
 ```
+
+## Clean Project
+
+```shell
+$ sail php artisan optimize:clear
+# or
+$ sail php artisan config:clear
+```

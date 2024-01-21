@@ -7,6 +7,7 @@
     ```shell
    $ sudo chmod 777 /var/run/docker.sock
     ```
+
 2. Install composer packages.
 
    If you don't have composer installed you can run this command:
@@ -17,12 +18,13 @@
    -u "$(id -u):$(id -g)" \
    -v "$(pwd)":/opt \
    -w /opt \
-   composer --global config process-timeout 0 && composer install --no-scripts
+   composer --global config process-timeout 0 && composer install --ignore-platform-reqs --no-scripts --no-plugins
     ```
+
    Otherwise, you can run this other:
 
     ```shell
-    $ composer --global config process-timeout 0 && composer install --no-scripts
+    $ composer --global config process-timeout 0 && composer install --ignore-platform-reqs --no-scripts --no-plugins
     ```
 
 3. Copy the __.env.example__ file to the root folder of the project and rename it to __.env__
@@ -40,20 +42,23 @@
     ```shell
     $ ./vendor/bin/sail stop
     ```
-   
+
 8. Configure alias.
 
    ```shell
    $  alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
     ```
+
    Once the shell alias has been configured, you may execute Sail commands by simply typing `sail`. The remainder of this documentation's examples will assume that you have configured this alias:
 
     ```shell
    $ sail up
     ```
+
    To make sure this is always available, you may add this to your shell configuration file in your home directory, such as `~/.zshrc` or `~/.bashrc`, and then restart your shell.
 
 > If you are having permissions issues you have to run this command.
+>
 >   ```shell
 >   $ sail root-shell
 >   cd ..
@@ -70,24 +75,15 @@
 ## IDE helper commands
 
    ```shell
-   $ sail php artisan ide-helper:generate #PHPDoc generation for Laravel Facades
-   $ sail php artisan ide-helper:models --no-interaction #PHPDocs for models
-   $ sail php artisan ide-helper:meta #PhpStorm Meta file
-   ```
-
-## Check Docker Image Runnning
-
-```shell
-$ sudo docker ps / 
---filter "name=e-commerce_php-laravel.test-1" / 
---filter "status=running" / 
---format "{{.Image}}"
-```
+    $ sail php artisan ide-helper:generate #PHPDoc generation for Laravel Facades
+    $ sail php artisan ide-helper:models --no-interaction #PHPDocs for models
+    $ sail php artisan ide-helper:meta #PhpStorm Meta file
+    ```
 
 ## Clean Project
 
-```shell
-$ sail php artisan optimize:clear
-# or
-$ sail php artisan config:clear
-```
+   ```shell
+    $ sail php artisan optimize:clear
+    # or
+    $ sail php artisan config:clear
+    ```

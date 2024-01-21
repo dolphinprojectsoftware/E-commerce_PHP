@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^8.2",
+    "php": "^8.2|^8.3",
     "bensampo/laravel-enum": "^6.6",
     "guzzlehttp/guzzle": "^7.2",
     "laravel/framework": "^10.10",
@@ -72,10 +72,7 @@
       "php-http/discovery": true
     },
     "process-timeout": 0,
-    "platform-check": true,
-    "platform": {
-      "php": "8.2.0"
-    }
+    "platform-check": false
   },
   "minimum-stability": "stable",
   "prefer-stable": true

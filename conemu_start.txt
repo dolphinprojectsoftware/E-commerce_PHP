@@ -1,0 +1,6 @@
+>%windir%\system32\wsl.exe -cur_console:t:"MyCommand1" -cur_console:pm:/mnt ~ --distribution Ubuntu-20.04 --exec zsh -li -c "mycommand1; zsh -li"
+>%windir%\system32\wsl.exe -cur_console:t:"MyCommand2" -cur_console:pm:/mnt ~ --distribution Ubuntu-20.04 --exec zsh -li -c "mycommand2; zsh -li"
+>%windir%\system32\wsl.exe -cur_console:t:"MyCommand1" -cur_console:pm:/mnt ~ --distribution Ubuntu-20.04 --exec sh -c "ZDOTDIR=$HOME/.local/share/zsh/startup/run_alias RUN_ALIAS=mycommand1 exec zsh -li"
+>%windir%\system32\wsl.exe -cur_console:t:"MyCommand2" -cur_console:pm:/mnt ~ --distribution Ubuntu-20.04 --exec sh -c "ZDOTDIR=$HOME/.local/share/zsh/startup/run_alias RUN_ALIAS=mycommand2 exec zsh -li"
+wsl ~ --distribution Ubuntu-20.04 --exec sh -c "ZDOTDIR=`$HOME/.local/share/zsh/startup/run_alias RUN_ALIAS=mycommand1 exec zsh -li" # PowerShell quoted
+wsl ~ --distribution Ubuntu-20.04 --exec sh -c "ZDOTDIR=$HOME/.local/share/zsh/startup/run_alias RUN_ALIAS=mycommand1 exec zsh -li" # CMD (and ConEmu) quoted
